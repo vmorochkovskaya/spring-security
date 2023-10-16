@@ -5,7 +5,6 @@ import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean
 import org.springframework.boot.jdbc.DataSourceBuilder;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.core.annotation.Order;
 
 import javax.sql.DataSource;
 
@@ -20,9 +19,8 @@ public class CustomDataSourceConfiguration {
     private String customDbName;
 
     @Bean
-    @Order
     @ConditionalOnMissingBean
-    public DataSource dataSource2() {
+    public DataSource dataSource() {
         DataSourceBuilder<?> dataSourceBuilder = DataSourceBuilder.create();
         dataSourceBuilder.driverClassName(DRIVER_CLASS_NAME);
         dataSourceBuilder.url(DB_URL+ customDbName);
