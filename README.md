@@ -34,5 +34,5 @@ To get started with this project, follow these steps:
    ```shell
    java -jar demo-app/target/demo-app-0.0.1-SNAPSHOT.jar
    
-5. Open Postman and send GET request to http://localhost:8080/actuator/. Ensure you use Basic Auth with admin/pass credentials
+5. Open Postman and send GET request to http://localhost:8080/actuator/.
 
