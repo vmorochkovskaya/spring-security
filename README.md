@@ -1,36 +1,45 @@
+# Java Kafka Producer and Consumer Example
+
+This is a Java application that demonstrates how to produce and consume messages using Confluent's Apache Kafka with Schema Registry. The project is built with Java 17 and managed with Maven 3.8.
+
 ## Prerequisites
 
-Before you begin, ensure you have met the following requirements:
+Before running the code, make sure you have the following software installed:
 
-- Java Development Kit (JDK) 17: You can download and install it from [OpenJDK](https://openjdk.java.net/).
-- Apache Maven 3.8: You can download and install it from the [official Maven website](https://maven.apache.org/download.cgi).
-- Node.js
-- 8080 port is free
+- Java 17: You can download it from [Oracle](https://www.oracle.com/java/technologies/javase-jdk17-downloads.html) or use a distribution like [OpenJDK](https://adoptopenjdk.net/).
 
-## Getting Started
+- Apache Maven 3.8: You can download it from the [Maven website](https://maven.apache.org/download.cgi).
 
-To get started with this project, follow these steps:
+## Setup
 
 1. Clone this repository to your local machine:
 
-   ```shell
+   ```bash
    git clone git@git.epam.com:vasilisa_marachkouskaya/java-advanced-backend.git -b <branch>
 
-2. Navigate to server folder and start it
+2. ```bash
+   mvn clean install
+   ```
+   Repeat this step in case you are receiving "demo.kafka.event.PaymentSent not found ..."
 
-   ```shell
-   cd grpc-server
-   mvn compile exec:java "-Dexec.mainClass=org.example.pingpong.GrpsServer"
+3. Run Spring boot application
+4. In Postman send POST request to http://localhost:9001/v1/payments/send.
 
-3. Open second terminal window. Navigate to java client folder and start it
+   Body sample:
+```
+{
+   "paymentId": "789-1115",
+   "amount": 340.00,
+   "currency": "USD",
+   "toAccount": "Harry",
+   "fromAccount": "Vasilisa"
+   }
+```
+5. Observe console logs
+6. To register new schema version update /resources/avro/payment_sent.avsc with new fields and increment the version.
+Then update SendPaymentRequest class accordingly. Then run
+   ```bash
+   mvn schema-registry:register
+   ```
+   Then send POST request with updated body.
 
-   ```shell
-   cd grpc-java-client
-   mvn compile exec:java "-Dexec.mainClass=org.example.pingpong.GrpsClient"
-
-4. Open the third terminal window. Navigate to node client folder and start it
-
-   ```shell
-   cd grpc-node-client
-   npm install
-   node ./dynamic_codegen/greeter_client.js
