@@ -5,7 +5,6 @@ import demo.kafka.properties.KafkaDemoProperties;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.kafka.clients.producer.ProducerRecord;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.kafka.core.KafkaTemplate;
 import org.springframework.stereotype.Component;
 
@@ -13,10 +12,7 @@ import org.springframework.stereotype.Component;
 @Component
 @RequiredArgsConstructor
 public class KafkaClient {
-    @Autowired
     private final KafkaDemoProperties properties;
-
-    @Autowired
     private final KafkaTemplate<String, PaymentSent> kafkaTemplate;
 
     public void sendMessage(String key, PaymentSent outboundEvent) {

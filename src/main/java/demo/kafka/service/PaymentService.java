@@ -5,7 +5,6 @@ import demo.kafka.lib.KafkaClient;
 import demo.kafka.rest.api.SendPaymentRequest;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service
@@ -13,7 +12,6 @@ import org.springframework.stereotype.Service;
 @RequiredArgsConstructor
 public class PaymentService {
 
-    @Autowired
     private final KafkaClient kafkaClient;
 
     /**
