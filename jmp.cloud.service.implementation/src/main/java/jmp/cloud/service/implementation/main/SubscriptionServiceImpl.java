@@ -5,8 +5,8 @@ import jmp.cloud.service.api.main.service.SubscriptionService;
 import jmp.dto.main.Subscription;
 import jmp.dto.main.dto.SubscriptionRequestDto;
 import jmp.dto.main.dto.SubscriptionResponseDto;
+import lombok.RequiredArgsConstructor;
 import org.modelmapper.ModelMapper;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDate;
@@ -15,10 +15,9 @@ import java.util.Optional;
 import java.util.stream.Collectors;
 
 @Service
+@RequiredArgsConstructor
 public class SubscriptionServiceImpl implements SubscriptionService {
-    @Autowired
     private SubscriptionRepository subscriptionRepository;
-    @Autowired
     private ModelMapper modelMapper;
 
     @Override

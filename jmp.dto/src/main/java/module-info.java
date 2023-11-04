@@ -5,4 +5,5 @@ module jmp.dto {
     requires spring.beans;
     requires spring.context;
     requires spring.boot.starter.data.jpa;
+    requires io.swagger.v3.oas.annotations;
 }

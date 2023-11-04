@@ -16,6 +16,7 @@ module jmp.cloud.service.implementation {
         requires spring.data.commons;
         requires spring.boot.starter.data.jpa;
         requires spring.data.jpa;
+        requires lombok;
         exports jmp.cloud.service.implementation.main;
         provides UserService with UserServiceImpl;
         provides SubscriptionService with SubscriptionServiceImpl;

@@ -1,25 +1,22 @@
 package jmp.service.rest2.main;
 
-import io.swagger.annotations.Api;
-import io.swagger.annotations.ApiOperation;
-import io.swagger.annotations.ApiResponse;
-import io.swagger.annotations.ApiResponses;
+import io.swagger.annotations.*;
 import jmp.cloud.service.api.main.service.SubscriptionService;
 import jmp.dto.main.dto.SubscriptionRequestDto;
 import jmp.dto.main.dto.SubscriptionResponseDto;
 import jmp.service.rest2.main.exception.SubscriptionNotFoundException;
-import org.springframework.beans.factory.annotation.Autowired;
+import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.ArrayList;
 import java.util.List;
-
 @RestController
 @RequestMapping("/subscriptions")
+@RequiredArgsConstructor
 @Api(value = "Service Management", tags = {"Service Management Tag"})
 public class ServiceController {
-    @Autowired
     private SubscriptionService subscriptionService;
 
     @ApiOperation(value = "Create new subscription")
@@ -28,6 +25,7 @@ public class ServiceController {
             @ApiResponse(code = 201, message = "Successfully created", response = SubscriptionResponseDto.class)})
     @PostMapping("/")
     public ResponseEntity<SubscriptionResponseDto> createSubscription(@RequestBody SubscriptionRequestDto subscriptionRequestDto) {
+       new ArrayList<Integer>().add(1, 12);
         var createdSubs = subscriptionService.createSubscription(subscriptionRequestDto);
         return ResponseEntity.status(HttpStatus.CREATED).body(createdSubs);
 

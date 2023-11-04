@@ -1,9 +1,15 @@
 package jmp.dto.main.dto;
 
+import io.swagger.v3.oas.annotations.media.Schema;
+
 public class UserResponseDto {
+    @Schema(name = "UserId", description = "Sample user id for the documentation", example = "123", required = true)
     private Long id;
+    @Schema(name = "UserName", description = "Sample user name for the documentation", example = "Ivan")
     private String name;
+    @Schema(name = "UserSurname", description = "Sample user surname for the documentation", example = "Ivanov")
     private String surname;
+    @Schema(name = "UserBirthday", description = "Sample user birthday for the documentation", example = "2000-01-10")
     private String birthday;
 
     public Long getId() {

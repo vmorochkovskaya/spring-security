@@ -1,9 +1,14 @@
 package jmp.dto.main.dto;
 
 
+import io.swagger.v3.oas.annotations.media.Schema;
+
 public class SubscriptionResponseDto {
+    @Schema(name = "SubscriptionID", description = "Sample subscription id for the documentation", example = "123", required = true)
     private Long id;
+    @Schema(name = "UserID", description = "Sample user id for the documentation", example = "123")
     private Long userId;
+    @Schema(name = "StartDate", description = "Sample start date for the documentation", example = "2020-03-03")
     private String startDate;
 
     public Long getId() {

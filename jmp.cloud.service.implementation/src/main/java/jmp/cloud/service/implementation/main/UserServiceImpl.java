@@ -5,8 +5,8 @@ import jmp.cloud.service.api.main.service.UserService;
 import jmp.dto.main.User;
 import jmp.dto.main.dto.UserRequestDto;
 import jmp.dto.main.dto.UserResponseDto;
+import lombok.RequiredArgsConstructor;
 import org.modelmapper.ModelMapper;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -14,10 +14,9 @@ import java.util.Optional;
 import java.util.stream.Collectors;
 
 @Service
+@RequiredArgsConstructor
 public class UserServiceImpl implements UserService {
-    @Autowired
     private UserRepository userRepository;
-    @Autowired
     private ModelMapper modelMapper;
 
     @Override
