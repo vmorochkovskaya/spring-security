@@ -20,10 +20,7 @@ public class AuthFailureListener implements ApplicationListener<AuthenticationFa
         Object principal = authenticationFailureBadCredentialsEvent.getAuthentication().getPrincipal();
         if (principal instanceof String) {
             String username = (String) principal;
-            System.out.println("000000000000000000000----------");
-            System.out.println(username);
             if (users.loadUserByUsername(username) != null) {
-                System.out.println("111111111111111111----------");
                 loginAttemptService.loginFailed(username);
             }
             if (loginAttemptService.isBlocked(username)) {

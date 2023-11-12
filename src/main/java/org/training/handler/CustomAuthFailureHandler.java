@@ -22,9 +22,6 @@ public class CustomAuthFailureHandler extends SimpleUrlAuthenticationFailureHand
         setDefaultFailureUrl("/login?error");
         super.onAuthenticationFailure(request, response, exception);
         String errMessage = BAD_CREDENTIALS_ERR_MSG;
-        System.out.println("9r8wfjkdsjflsjfl");
-        System.out.println(exception.toString());
-        System.out.println(exception.getMessage());
         if (exception.getMessage().contains("blocked")) {
             errMessage = USER_IS_BLOCKED_ERR_MSG;
         }
