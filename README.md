@@ -45,19 +45,14 @@ To get started with this project, follow these steps:
 4. Run spring boot application
 
 ## Testing
-1. Open browser and navigate to http://localhost:8080/subscriptions/admin.
-   You will be asked for credentials. Enter *admin/password*
-2. Navigate to http://localhost:8080/subscriptions/info.
-   You will be asked for credentials. Enter *user/password*
-3. Navigate to http://localhost:8080/subscriptions/about.
-4. Navigate to http://localhost:8080. Log in using one of the following credentials:
+1. Navigate to http://localhost:8080. Log in using one of the following credentials:
    - admin/password
    - user/password
    - full/password
-5. Log out and enter user with not valid password at least 3 times. For instance enter *user/123*.
+2. Log out and enter user with not valid password at least 3 times. For instance enter *user/123*.
    Open http://localhost:8080/blocked.
    After 30 sec try to log in with valid user's credentials: *user/password*
-6. Log out and check access to the following resources:
+3. Log out and check access to the following resources:
    - Navigate to http://localhost:8080/subscriptions/admin. You will be asked for credentials. Enter *admin/password*
    - Navigate to http://localhost:8080/subscriptions/info. You will be asked for credentials. Enter *user/password*
    - Navigate to http://localhost:8080/subscriptions/about.
