@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Login page</title>
+    <meta charset="utf-8">
+</head>
+<body>
+<h1>Login page</h1>
+<p th:utext="${session[SPRING_SECURITY_LAST_EXCEPTION]}" th:text="${session[SPRING_SECURITY_LAST_EXCEPTION]}">error</p>
+
+<form th:action="@{/login}" method="post">
+    <label for="username">Username</label>:
+    <input type="text" id="username" name="username" autofocus="autofocus" /> <br />
+    <label for="password">Password</label>:
+    <input type="password" id="password" name="password" /> <br />
+    <input type="submit" style="height:50px; width:80px" value="Log in" />
+</form>
+</body>
+</html>
